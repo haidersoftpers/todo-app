@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Task from "./Task";
 const List = () => {
   const tasks = useSelector((state) => state.todo.tasks);
-  console.log("tasks", tasks);
+  const { user } = useSelector((state) => state.auth);
   return (
     <div class="page-content page-container" id="page-content">
       <div class="padding">
@@ -16,6 +16,12 @@ const List = () => {
                 <Link to="/add" role="link">
                   Add
                 </Link>
+                {!user && (
+                  <Link to="/login" role="link" className="ml-3">
+                    Login
+                  </Link>
+                )}
+
                 <div class="list-wrapper">
                   <ul class="d-flex flex-column-reverse todo-list">
                     {tasks?.map((task, index) => {

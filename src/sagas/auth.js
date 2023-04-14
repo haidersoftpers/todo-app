@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import { successLogin } from "../features/auth/login/loginSlice";
+import { successSignUp, successLogin } from "../features/auth/authSlice";
 import { LOGIN, SIGNUP } from "../constants/auth";
-import { successSignUp } from "../features/auth/signup/signUpSlice";
+
 function* Login({ payload }) {
   yield put(successLogin(payload));
 }

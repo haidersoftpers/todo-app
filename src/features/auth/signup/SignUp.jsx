@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { SIGNUP } from "../../../constants/auth";
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -8,8 +9,10 @@ const SignUp = () => {
     password: null,
   });
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleSignUp = () => {
     dispatch({ type: SIGNUP, payload: formData });
+    navigate("/");
   };
   return (
     <div class="container">

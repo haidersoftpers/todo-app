@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { LOGIN } from "../../../constants/auth";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleLogin = () => {
     dispatch({ type: LOGIN, payload: { email: email, password: password } });
+    navigate("/");
   };
   return (
     <div class="container">
@@ -49,6 +52,9 @@ const Login = () => {
                 >
                   Login
                 </button>
+                <Link to="/signup" className="ml-3">
+                  SignUp
+                </Link>
               </form>
             </div>
           </div>

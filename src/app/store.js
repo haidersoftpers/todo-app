@@ -6,8 +6,7 @@ import { persistReducer, persistStore } from "redux-persist";
 import counterReducer from "../features/counter/counterSlice";
 import todoReducer from "../features/todo/todoSlice";
 import rootSaga from "../sagas";
-import loginSlice from "../features/auth/login/loginSlice";
-import signUpSlice from "../features/auth/signup/signUpSlice";
+import authSlice from "../features/auth/authSlice";
 const persistConfig = {
   key: "root",
   storage,
@@ -16,8 +15,7 @@ let sagaMiddleware = createSagaMiddleware();
 const reducers = combineReducers({
   counter: counterReducer,
   todo: todoReducer,
-  login: loginSlice,
-  signup: signUpSlice,
+  auth: authSlice,
 });
 const persistedReducer = persistReducer(persistConfig, reducers);
 const store = configureStore({
