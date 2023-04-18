@@ -14,7 +14,7 @@ describe("todo reducer", () => {
       initialState,
       addTask({ id: 1, task: "test", completed: true })
     );
-    expect(ta`2sks).toHaveLength(1);
+    expect(tasks).toHaveLength(1);
   });
   it("should handle delete task", () => {
     const { tasks } = todoReducer({tasks:[{ id: 1, task: "test", completed: true }]}, deleteTask(1));
